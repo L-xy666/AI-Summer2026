@@ -1,17 +1,35 @@
 from app.data_loader import load_csv
-from app.analyzer import get_basic_info,get_sales_statistics,get_top_product
+from app.analyzer import (
+    get_basic_info,
+    get_sales_statistics,
+    get_top_product,
+    get_sales_ranking,
+    get_sales_ratio
+)
 
+"""主程序入口，加载数据并进行分析。"""
 df = load_csv("data/raw/test.csv")
-print(df)
+df["销售额占比"] = get_sales_ratio(df)
+result = df.copy()
+result["销售额占比"]=result["销售额占比"].map(lambda x:f"{x:.2%}")
+print(result)
+
 info = get_basic_info(df)
 print("数据行数：",info["rows"])
 print("数据列数：",info["columns"])
 
 stats = get_sales_statistics(df)
-print("平均销量：",stats["averages_sales"])
+print("平均销量：",stats["average_sales"])
 print("最大销量：",stats["max_sales"])
 print("最小销量：",stats["min_sales"])
 
 top_product = get_top_product(df)
 print("销售额最高的商品：",top_product["product"])
 print("最高销售额：",top_product["sales_amount"])
+
+ranking = get_sales_ranking(df).copy()
+ranking["销售额占比"] =ranking["销售额占比"].map(lambda x:f"{x:.2%}")
+print("\n销售额排行榜：")
+print(ranking)
+
+
