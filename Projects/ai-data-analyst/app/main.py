@@ -6,13 +6,21 @@ from app.analyzer import (
     get_sales_ranking,
     get_sales_ratio
 )
+from app.visualization import(
+    draw_sales_bar,
+    draw_sales_pie
+)
+import os
+
+# 确保输出目录存在
+os.makedirs("outputs", exist_ok=True)
 
 """主程序入口，加载数据并进行分析。"""
 df = load_csv("data/raw/test.csv")
 df["销售额占比"] = get_sales_ratio(df)
-result = df.copy()
-result["销售额占比"]=result["销售额占比"].map(lambda x:f"{x:.2%}")
-print(result)
+display_df = df.copy()
+display_df["销售额占比"] = display_df["销售额占比"].map(lambda x:f"{x:.2%}")
+print(display_df)
 
 info = get_basic_info(df)
 print("数据行数：",info["rows"])
@@ -33,3 +41,6 @@ print("\n销售额排行榜：")
 print(ranking)
 
 
+draw_sales_bar(df)
+draw_sales_pie(df)
+print("图表生成完成")
