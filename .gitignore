@@ -1,24 +1,80 @@
+# =========================
 # Python
+# =========================
+
 __pycache__/
 *.py[cod]
 *.pyo
 
-# Virtual environments
+# Python virtual environment
 .venv/
 venv/
 env/
 
-# Environment variables / secrets
+
+# =========================
+# IDE
+# =========================
+
+.vscode/
+.idea/
+
+
+# =========================
+# Environment
+# =========================
+
 .env
 
+
+# =========================
 # Jupyter
+# =========================
+
 .ipynb_checkpoints/
 
-# VS Code
-.vscode/
 
+# =========================
 # OS
+# =========================
+
 .DS_Store
 Thumbs.db
-# Python 学习练习，不上传 GitHub
-/Python/
+
+
+
+
+# =========================
+# Temporary files
+# =========================
+
+*.log
+*.tmp
+
+
+# =========================
+# Data
+# =========================
+
+# 原始数据
+Projects/*/data/raw/*
+
+# 处理后的数据
+Projects/*/data/processed/*
+
+
+# =========================
+# Model files
+# =========================
+
+*.pth
+*.pt
+*.h5
+*.ckpt
+
+
+# =========================
+# Cache
+# =========================
+
+*.cache
