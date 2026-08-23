@@ -62,6 +62,12 @@ Projects/*/data/raw/*
 # 处理后的数据
 Projects/*/data/processed/*
 
+# =========================
+# Generated outputs
+# =========================
+
+Projects/*/outputs/*
+
 
 # =========================
 # Model files
