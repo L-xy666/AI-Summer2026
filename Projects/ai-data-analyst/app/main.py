@@ -11,6 +11,7 @@ from app.visualization import(
     draw_sales_pie
 )
 import os
+from app.report import generate_report
 
 # 确保输出目录存在
 os.makedirs("outputs", exist_ok=True)
@@ -44,3 +45,11 @@ print(ranking)
 draw_sales_bar(df)
 draw_sales_pie(df)
 print("图表生成完成")
+
+generate_report(
+    df,
+    info,
+    stats,
+    top_product,
+    ranking
+)
