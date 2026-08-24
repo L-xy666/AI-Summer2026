@@ -1,3 +1,6 @@
+from app.llm import generate_ai_analysis
+
+
 def generate_report(
         df,
         info,
@@ -61,6 +64,19 @@ def generate_report(
         f"销售额：{top_product['sales_amount']}"
     )
 
+    report.append(
+        ""
+    )
+
+    ai_analysis=generate_ai_analysis(
+        df,
+        stats,
+        top_product
+    )
+
+    report.append(
+        ai_analysis
+    )
 
     report.append(
         ""

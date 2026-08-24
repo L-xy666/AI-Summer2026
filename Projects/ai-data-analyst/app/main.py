@@ -17,7 +17,7 @@ from app.report import generate_report
 os.makedirs("outputs", exist_ok=True)
 
 """主程序入口，加载数据并进行分析。"""
-df = load_csv("data/raw/test.csv")
+df = load_csv("data/raw/sales_big.csv")
 df["销售额占比"] = get_sales_ratio(df)
 display_df = df.copy()
 display_df["销售额占比"] = display_df["销售额占比"].map(lambda x:f"{x:.2%}")
