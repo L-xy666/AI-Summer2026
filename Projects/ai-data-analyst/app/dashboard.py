@@ -170,27 +170,9 @@ if uploaded_file:
 
 
 
-    # ======================
-    # AI分析
-    # ======================
-
-    with st.spinner("🤖 AI正在分析数据，请稍候..."):
-
-        ai_text = generate_ai_analysis(
-            df,
-            stats,
-            top_product
-        )
 
 
-    st.subheader(
-        "AI数据分析"
-    )
 
-
-    st.markdown(
-        ai_text
-    )
 
 
 
@@ -239,6 +221,30 @@ if uploaded_file:
         st.image(
             "outputs/sales_pie.png",
             caption="销售额占比"
+        )
+
+
+    # ======================
+    # AI分析
+    # ======================
+
+    if st.button("开始AI分析"):
+        with st.spinner("🤖 AI正在分析数据，请稍候..."):
+
+            ai_text = generate_ai_analysis(
+                df,
+                stats,
+                top_product
+            )
+
+
+        st.subheader(
+            "AI数据分析"
+        )
+
+
+        st.markdown(
+            ai_text
         )
 
 
